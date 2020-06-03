@@ -44,10 +44,10 @@ pipeline {
 		stage('eks-cluster-creation') {
             		steps {
                			dir('./terraform') {
-                  			sh 'terraform --version'
+                  			/*sh 'terraform --version'
 					sh 'terraform init'
 					sh 'terraform plan'
-					sh 'terraform apply -auto-approve'
+					sh 'terraform apply -auto-approve'*/
 					sh 'aws eks --region us-east-1 update-kubeconfig --name terraform-eks-demo'
 					sh 'kubectl get svc'
 					sh 'terraform destroy -auto-approve'
