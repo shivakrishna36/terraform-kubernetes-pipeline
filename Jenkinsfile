@@ -16,7 +16,7 @@ pipeline {
 		dockerImage = ''*/
 	}*/
          stages {
-                 stage('One') {
+            /*     stage('One') {
                  steps {
 			  
 			sh label: '', script: 'java -version'
@@ -48,7 +48,7 @@ pipeline {
 				}
   			}
 		}
-		 
+		 */
 		stage('eks-cluster-creation') {
             		steps {
                			dir('./terraform') {
