@@ -6,15 +6,7 @@ pipeline {
 	terraform 'terraform'
 
     	}
-	/*environment {
-		
-		PATH = "C:\\WINDOWS\\SYSTEM32"
-	    	scannerHome = tool 'sonarcube scanner'
-		
-		/*registry = "shivakrishna1236/pipeline"
-   		registryCredential = 'dockerhub'
-		dockerImage = ''*/
-	}*/
+	
          stages {
             /*     stage('One') {
                  steps {
