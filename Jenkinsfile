@@ -54,7 +54,7 @@ pipeline {
 							sh 'terraform apply -auto-approve'
 							sh 'terraform output kubeconfig>~/.kube/config'
 							
-							sh 'aws eks --region us-east-1 update-kubeconfig --name terraform-eks-demo'
+						//	sh 'aws eks --region us-east-1 update-kubeconfig --name terraform-eks-demo'
 							sh 'terraform output config_map_aws_auth > configmap.yml'
 							sh 'kubectl apply -f configmap.yml'
 							
