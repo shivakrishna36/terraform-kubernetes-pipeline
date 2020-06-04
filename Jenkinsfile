@@ -52,8 +52,12 @@ pipeline {
 							sh 'terraform init'
 							sh 'terraform plan'
 							sh 'terraform apply -auto-approve'
+							sh 'terraform output kubeconfig>~/.kube/config'
+							
 							sh 'aws eks --region us-east-1 update-kubeconfig --name terraform-eks-demo'
-							sh 'kubectl get svc'
+							sh 'terraform output config_map_aws_auth > configmap.yml'
+							sh 'kubectl apply -f configmap.yml'
+							
 							sh 'kubectl create -f deploy1.yml'
 							sh 'kubectl create -f service1.yml'
 							timeout(5) {
