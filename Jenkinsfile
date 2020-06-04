@@ -56,7 +56,10 @@ pipeline {
 							sh 'kubectl get svc'
 							sh 'kubectl create -f deploy1.yml'
 							sh 'kubectl create -f service1.yml'
+							timeout(5) {
+								input('proceed')
 							sh 'terraform destroy -auto-approve'
+								}
   						} catch (Exception e) {
       							sh 'terraform destroy -auto-approve'
   						}
